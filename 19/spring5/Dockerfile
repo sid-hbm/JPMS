@@ -3,7 +3,7 @@ FROM openjdk:19-slim-buster AS builder
 
 RUN ["jlink", "--compress=2", "--module-path", \
      "$JAVA_HOME/jmods/", "--add-modules", \
-     "java.base,java.logging,java.management,java.security.jgss,java.naming,java.instrument,java.desktop,jdk.unsupported", \
+     "java.base,java.sql,java.logging,java.management,java.security.jgss,java.naming,java.instrument,java.desktop,jdk.unsupported", \
      "--no-header-files", "--no-man-pages", "--strip-java-debug-attributes", "--output", "/opt/runtime"]
 
 # Second stage: Copies the custom Java RuntimeImage into a bare alpine
